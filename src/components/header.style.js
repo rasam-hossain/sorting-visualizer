@@ -6,7 +6,8 @@ export const Button = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   text-align: center;
-  line-height: 30px;
+  text-align: left;
+  line-height: 55px;
   background: rgb(63, 94, 251);
   background: linear-gradient(
     34deg,
@@ -39,7 +40,7 @@ export const SortButton = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   text-align: center;
-  line-height: 30px;
+  line-height: 55px;
   background: rgb(240, 0, 0);
   background: linear-gradient(
     150deg,
@@ -71,9 +72,10 @@ export const Container = styled.div`
   flex-direction: row;
   align-content: center;
   justify-content: space-evenly;
-  height: 50px;
+  height: 75px;
   width: 100%;
-  background: linear-gradient(35deg, #00c9ff 0%, #92fe9d 100%);
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 5px;
@@ -85,4 +87,13 @@ export const SortWrapper = styled.div`
   flex-direction: row;
   align-content: center;
   justify-content: space-evenly;
+`;
+
+export const RangeWrapper = styled.p`
+  align-content: center;
+  justify-content: space-evenly;
+  width: 200px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
