@@ -1,11 +1,18 @@
 import React from "react";
 
-import { Button, SortButton, Container, SortWrapper } from "./header.style";
+import {
+  Button,
+  SortButton,
+  Wrapper,
+  SortWrapper,
+  NonButton,
+} from "./header.style";
 
 export default function Header({ rangeChange }) {
   return (
-    <Container>
-      <Button onClick={() => console.log("clicked")}>New Array</Button>
+    <Wrapper>
+      <NonButton>Sorting Visualizer</NonButton>
+      <Button onClick={() => console.log("clicked")}>Random</Button>
       <Button onClick={rangeChange}>Input Range</Button>
       <SortWrapper>
         <SortButton>#Bubble</SortButton>
@@ -13,6 +20,6 @@ export default function Header({ rangeChange }) {
         <SortButton>#Heap</SortButton>
         <SortButton>#Quick</SortButton>
       </SortWrapper>
-    </Container>
+    </Wrapper>
   );
 }

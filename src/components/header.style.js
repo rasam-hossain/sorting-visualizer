@@ -33,11 +33,23 @@ export const Button = styled.p`
   }
 `;
 
+export const NonButton = styled.p`
+  color: #fff;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 35px;
+  text-align: left;
+  text-align: left;
+  line-height: 55px;
+  color: white;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+`;
+
 export const SortButton = styled.p`
   color: #fff;
   cursor: pointer;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Italic, Helvetica, sans-serif;
   font-size: 25px;
   text-align: center;
   line-height: 55px;
@@ -67,19 +79,18 @@ export const SortButton = styled.p`
   }
 `;
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-content: center;
-  justify-content: space-evenly;
-  height: 75px;
+  justify-content: space-around;
   width: 100%;
-  background-color: #485461;
-  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  min-height: 75px;
+  background-color: #28313b;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 export const SortWrapper = styled.div`

@@ -1,5 +1,8 @@
 body,
-ul {
-  margin: 0;
-  padding: 0;
+html,
+ul,
+#app {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
