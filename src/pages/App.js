@@ -5,7 +5,7 @@ import Main from "./Main";
 import "./App.style.css";
 
 function App() {
-  const [size, setSize] = useState(50);
+  const [size, setSize] = useState(10);
   const [arr, setArray] = useState([]);
 
   useEffect(() => {
@@ -13,23 +13,27 @@ function App() {
   }, [size]);
 
   const updateList = () => {
-    console.log("Updating the list");
     const randomArr = Array.from({ length: size }, () =>
-      Math.floor(Math.random() * 500)
+      generateRandomBar(35, 500)
     );
-    console.log("randomArr:", randomArr);
     setArray(randomArr);
   };
 
+  function generateRandomBar(min, max) {
+    return Math.floor(min + Math.random() * (max + 1 - min))
+  }
+
   const rangeChange = () => {
-    const range = prompt("Set your Range");
-    console.log("range:", range);
-    setSize(range);
+    const range = prompt("Set your Range between 5 to 100");
+    if (range < 5 || range > 100 ) {
+      rangeChange();
+    } else
+      setSize(range);
   };
 
   return (
     <div className="App">
-      <Header rangeChange={rangeChange} />
+      <Header rangeChange={rangeChange} updateList={updateList}/>
       <Main data={arr}></Main>
     </div>
   );

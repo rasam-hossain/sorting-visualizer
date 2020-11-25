@@ -8,11 +8,11 @@ import {
   NonButton,
 } from "./header.style";
 
-export default function Header({ rangeChange }) {
+export default function Header({ rangeChange, updateList }) {
   return (
     <Wrapper>
       <NonButton>Sorting Visualizer</NonButton>
-      <Button onClick={() => console.log("clicked")}>Random</Button>
+      <Button onClick={updateList}>Random</Button>
       <Button onClick={rangeChange}>Input Range</Button>
       <SortWrapper>
         <SortButton>#Bubble</SortButton>

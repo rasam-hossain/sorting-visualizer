@@ -6,7 +6,9 @@ export default function Main({ data }) {
     <Container>
       {data.map((size) => (
         <>
-          <Bar height={`${size}px`} />
+          <Bar height={`${size}px`} >
+            { data.length <= 70 && <p>{ size}</p>}
+          </Bar>
         </>
       ))}
     </Container>
@@ -14,20 +16,24 @@ export default function Main({ data }) {
 }
 
 const Container = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px dotted firebrick;
+  height: 90vh;
+  bottom: 0;
+  border: 1px dotted white;
   border-radius: 1px;
   box-sizing: border-box;
-  background-color: #DDDDDD;
+  background-color: #D3D3D3;
 `;
 
 const Bar = styled.div`
-  width: 1%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 2%;
   height: ${(props) => props.height};
   background-image: linear-gradient(
     34deg,
