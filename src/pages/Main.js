@@ -1,16 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Main({ data }) {
+import { Button } from "../components/header.style";
+
+const angleDeg = 315;
+
+export default function Main({ currentIndex, data, nextIndex }) {
+  console.log("Main -> nextIndex", nextIndex);
+  console.log("Main -> currentIndex", currentIndex);
   return (
     <Container>
-      {data.map((size) => (
-        <>
-          <Bar height={`${size}px`} >
-            { data.length <= 70 && <p>{ size}</p>}
-          </Bar>
-        </>
-      ))}
+      <>
+        {data.map((size, i) => (
+          <>
+            <Bar
+              height={`${size}px`}
+              key={i}
+              active={currentIndex === i}
+              style={nextIndex === i ? { backgroundImage: "linear-gradient(180deg, #99f2c8, green);" } : null}
+            >
+              {data.length < 20 && <p>{size}</p>}
+            </Bar>
+          </>
+        ))}
+      </>
     </Container>
   );
 }
@@ -33,17 +46,12 @@ const Bar = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  width: 2%;
   height: ${(props) => props.height};
-  background-image: linear-gradient(
-    34deg,
-    rgba(252, 176, 69, 1) 0%,
-    rgba(253, 29, 29, 1) 43%,
-    rgba(131, 58, 180, 1) 100%
-  );
+  width: 2%;
+  background-image: ${(props) => {
+  return props.active ? `linear-gradient(#0583F2, #0540F2)` : `linear-gradient(35deg, #fd1d1d 0%, #fcb045 100% )`;}};
   margin-right: 1px;
   margin-left: 1px;
-  border-bottom: 1px dotted red;
-  border-left: 1px dotted red;
-  border-right: 1px dotted red;
+  border: 1px solid red;
+  ${(props) => props.style}
 `;
