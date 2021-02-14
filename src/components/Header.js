@@ -8,17 +8,41 @@ import {
   NonButton,
 } from "./header.style";
 
-export default function Header({ rangeChange, updateList, bubbleSortOnClick }) {
+export default function Header(props) {
   return (
     <Wrapper>
       <NonButton>Sorting Visualizer</NonButton>
-      <Button onClick={updateList}>Random</Button>
-      <Button onClick={rangeChange}>Input Range</Button>
+      <Button onClick={props.updateList} disabled={props.disableButton}>
+        Random
+      </Button>
+      <Button onClick={props.rangeChange} disabled={props.disableButton}>
+        Input Range
+      </Button>
       <SortWrapper>
-        <SortButton onClick={bubbleSortOnClick}>#Bubble</SortButton>
-        <SortButton>#Merge</SortButton>
-        <SortButton>#Heap</SortButton>
-        <SortButton>#Quick</SortButton>
+        <SortButton
+          onClick={props.bubbleSortOnClick}
+          disabled={props.disableButton}
+        >
+          #Bubble
+        </SortButton>
+        <SortButton
+          disabled={props.disableButton}
+          //onClick={props.mergeSortOnClick}
+        >
+          #Merge
+        </SortButton>
+        <SortButton
+          disabled={props.disableButton}
+          //onClick={props.heapSortOnClick}
+        >
+          #Heap
+        </SortButton>
+        <SortButton
+          disabled={props.disableButton}
+          //onClick={props.quickSortOnClick}
+        >
+          #Quick
+        </SortButton>
       </SortWrapper>
     </Wrapper>
   );

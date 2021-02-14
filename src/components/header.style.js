@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.p`
+export const Button = styled.button`
   color: #fff;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
@@ -31,6 +31,9 @@ export const Button = styled.p`
     );
     border: 2px solid tomato;
   }
+  &:disabled {
+    background: #dddddd;
+  }
 `;
 
 export const NonButton = styled.p`
@@ -45,7 +48,7 @@ export const NonButton = styled.p`
   padding: 0.25em 1em;
 `;
 
-export const SortButton = styled.p`
+export const SortButton = styled.button`
   color: #fff;
   cursor: pointer;
   justify-content: center;
@@ -76,6 +79,9 @@ export const SortButton = styled.p`
       rgba(0, 212, 255, 1) 100%
     );
     border: 2px solid tomato;
+  }
+  &:disabled {
+    background: #dddddd;
   }
 `;
 
