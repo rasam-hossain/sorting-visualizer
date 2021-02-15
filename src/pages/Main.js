@@ -17,7 +17,14 @@ export default function Main({ currentIndex, data, nextIndex }) {
               height={`${size}px`}
               key={i}
               active={currentIndex === i}
-              style={nextIndex === i ? { backgroundImage: "linear-gradient(180deg, #99f2c8, green);" } : null}
+              style={
+                nextIndex === i
+                  ? {
+                      backgroundImage:
+                        "linear-gradient(180deg, #99f2c8, green);",
+                    }
+                  : null
+              }
             >
               {data.length < 20 && <p>{size}</p>}
             </Bar>
@@ -39,7 +46,7 @@ const Container = styled.div`
   border: 1px dotted white;
   border-radius: 1px;
   box-sizing: border-box;
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
 `;
 
 const Bar = styled.div`
@@ -47,9 +54,12 @@ const Bar = styled.div`
   align-items: flex-start;
   justify-content: center;
   height: ${(props) => props.height};
-  width: 2%;
+  width: 1%;
   background-image: ${(props) => {
-  return props.active ? `linear-gradient(#0583F2, #0540F2)` : `linear-gradient(35deg, #fd1d1d 0%, #fcb045 100% )`;}};
+    return props.active
+      ? `linear-gradient(#0583F2, #0540F2)`
+      : `linear-gradient(35deg, #fd1d1d 0%, #fcb045 100% )`;
+  }};
   margin-right: 1px;
   margin-left: 1px;
   border: 1px solid red;

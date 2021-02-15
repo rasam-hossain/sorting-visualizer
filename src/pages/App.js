@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Main from "./Main";
 
 import "./App.style.css";
-import { bubbleSort } from "../helpers/sorting";
+import { bubbleSort, mergeSort } from "../helpers/sorting";
 import SelectInput from "@material-ui/core/Select/SelectInput";
 import { sleep } from "../helpers/index";
 
@@ -23,6 +23,7 @@ function App() {
       generateRandomBar(35, 500)
     );
     setArray(randomArr);
+
     console.log("arr: " + arr);
   };
 
@@ -52,34 +53,49 @@ function App() {
     setCurrentNext(null);
   };
 
-  const mergeSortOnClick = (arr) => {
-    // if the array is less than 2 numbers
-    if (arr.length < 2) return arr;
-
-    const middle = Math.floor(arr.length / 2);
-    const arr_left = arr.slice(0, middle);
-    const arr_right = arr.slice(middle, arr.length);
-    const sorted_left = mergeSortOnClick(arr_left);
-    const sorted_right = mergeSortOnClick(arr_right);
-    return _mergeArrays(sorted_left, sorted_right);
+  const mergeSortOnClick = () => {
+    drawMergerSort(mergeSort(arr));
   };
 
-  const _mergeArrays = (left, right) => {
-    const c = [];
+  const drawMergerSort = async (returnedArrays) => {
+    setDisableButton(true);
+    for (var i = 0; i < returnedArrays.length; i++) {
+      setArray(returnedArrays[i]);
+      await sleep(2000);
+    }
+    setDisableButton(false);
+    setCurrentIndex(null);
+    setCurrentNext(null);
+  };
 
-    while (left.length && right.length) {
-      c.push(left[0] > right[0] ? right.shift() : left.shift());
+  const mergeSort = () => {
+    var array = arr;
+    var arrays = [array.slice()];
+    var n = array.length;
+    var array0 = array;
+    var array1 = new Array(n);
+
+    for (var m = 1; m < n; m <<= 1) {
+      for (var i = 0; i < n; i += m << 1) {
+        merge(i, Math.min(i + m, n), Math.min(i + (m << 1), n));
+      }
+      arrays.push(array1.slice());
+      array = array0;
+      array0 = array1;
+      array1 = array;
     }
 
-    //if we still have values, let's add them at the end of `c`
-    while (left.length) {
-      c.push(left.shift());
+    function merge(left, right, end) {
+      for (var i0 = left, i1 = right, j = left; j < end; ++j) {
+        setCurrentIndex(left);
+        setCurrentNext(right);
+        array1[j] =
+          array0[
+            i0 < right && (i1 >= end || array0[i0] <= array0[i1]) ? i0++ : i1++
+          ];
+      }
     }
-    while (right.length) {
-      c.push(right.shift());
-    }
-
-    return c;
+    return arrays;
   };
 
   return (

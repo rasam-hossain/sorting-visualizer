@@ -5,7 +5,7 @@ export const bubbleSort = async (
   arr,
   setCurrentIndex,
   setCurrentNext,
-  callBack
+  setArray
 ) => {
   console.log("Bubble Sort Algorithm");
 
@@ -20,34 +20,20 @@ export const bubbleSort = async (
         let tmp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = tmp;
-        callBack([...arr]);
+        setArray([...arr]);
       }
     }
     await sleep(100);
   }
 };
 
-// Merge Sort
-export const mergeSort = async (
-  arr,
-  setCurrentIndex,
-  setCurrentNext,
-  callBack
-) => {
-  console.log("Merge Sort Algorithm");
-
-  let len = arr.length;
-  // this is where the implementation for merge sort will happen
-};
-
-// Heap Sort
 export const heapSort = async (
   arr,
   setCurrentIndex,
   setCurrentNext,
   callBack
 ) => {
-  console.log("Merge Sort Algorithm");
+  console.log("Heap Sort Algorithm");
 
   let len = arr.length;
   // this is where the implementation for merge sort will happen
@@ -60,14 +46,14 @@ export const quickSort = async (
   setCurrentNext,
   callBack
 ) => {
-  console.log("Merge Sort Algorithm");
+  console.log("Quick Sort Algorithm");
 
   let len = arr.length;
   // this is where the implementation for merge sort will happen
 };
 export default {
   bubbleSort,
-  mergeSort,
+  //mergeSort,
   heapSort,
   quickSort,
 };

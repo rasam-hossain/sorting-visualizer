@@ -27,7 +27,7 @@ export default function Header(props) {
         </SortButton>
         <SortButton
           disabled={props.disableButton}
-          //onClick={props.mergeSortOnClick}
+          onClick={props.mergeSortOnClick}
         >
           #Merge
         </SortButton>
